@@ -14,6 +14,7 @@
     "axios": "^0.21.1"
   },
   "devDependencies": {
+    "eslint": "^7.20.0",
     "serverless-azure-functions": "^2.1.0"
   }
 }
