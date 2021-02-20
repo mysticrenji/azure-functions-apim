@@ -1,4 +1,4 @@
-service: sls-az-func-rest-api
+service: azure-functions-apim
 provider:
   name: azure
   location: East US
