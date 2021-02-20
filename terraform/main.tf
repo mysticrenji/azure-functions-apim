@@ -9,7 +9,7 @@ provider "azurerm" {
 #Create the blob storage backend in Azure before runnin this
 terraform {
   backend "azurerm" {
-    resource_group_name   = "${var.resource_group_name}"
+    resource_group_name   = "rg-experiments-apim"
     storage_account_name  = ""
     container_name        = "tstate"
     key                   = "terraform.tfstate"
