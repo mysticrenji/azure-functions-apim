@@ -6,13 +6,16 @@ provider "azurerm" {
   features {}
 }
 
-#Create the blob storage backend in Azure before runnin this
+#Create the blob storage backend in Azure before running this
+#Export access key and store in ARM_ACCESS_KEY
+#This block cannot read from tfvars as this is assoicated with a provider
 terraform {
   backend "azurerm" {
     resource_group_name   = "rg-experiments-apim"
-    storage_account_name  = ""
+    storage_account_name  = "terraformblobstoragedev"
     container_name        = "tstate"
     key                   = "terraform.tfstate"
+    
   }
 }
 
