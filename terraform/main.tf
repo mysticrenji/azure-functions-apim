@@ -1,18 +1,19 @@
-provider "azurerm" {
-  # AzureRM provider 2.x
+# Configure the Azure provider
+provider "azurerm" { 
+  # The "feature" block is required for AzureRM provider 2.x. 
+  # If you are using version 1.x, the "features" block is not allowed.
   version = "~>2.0"
-  # v2.x required "features" block
   features {}
 }
 
+#Create the blob storage backend in Azure before runnin this
 terraform {
- backend "remote" {
-   organization = "terraformblobstorage" #Azure Blobstoragename
-
-   workspaces {
-     name = "terraform-dev" # workspace name for terraform seggration
-   }
- }
+  backend "azurerm" {
+    resource_group_name   = "${var.resource_group_name}"
+    storage_account_name  = ""
+    container_name        = "tstate"
+    key                   = "terraform.tfstate"
+  }
 }
 
 resource "azurerm_resource_group" "resourcegroup" {

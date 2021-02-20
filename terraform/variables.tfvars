@@ -3,6 +3,11 @@ variable "resource_group_name" {
   default     = "rg-experiments-apim"
 }
 
+variable "az-backend" {
+  description = "Backend for terraform in Azure"
+  default     = "terraformblobstoragedev"
+}
+
 variable "location" {
   description = "Location of the resources"
   default     = "Southeast Asia"
