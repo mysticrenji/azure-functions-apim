@@ -24,7 +24,7 @@ export ARM_ACCESS_KEY=$(az keyvault secret show --name blobkey --vault-name terr
 3. terraform apply -var="key=value"
 
 A good practice is to create seperate resource group for Azure Backend and your newly created resources </br>
-If you wanted import an existing resource use the below cmd </br>
+If you wanted to import an existing resource use the below cmd </br>
 terraform import azurerm_resource_group.resourcegroup /subscriptions/subscriptionid/resourceGroups/rg-experiments-apim</br>
 
 ## TF State file on Blob Storage
