@@ -8,7 +8,7 @@ export AZURE_CLIENT_ID=''</br>
 export AZURE_CLIENT_SECRET=''</br>
 
 ## Create Azure Blob Storage to act as Terraform Remote Backend
-Edit the bash blobstoragecreation.sh and update values , then execute </br>
+Edit the blobstoragecreation.sh and update values, then execute </br>
 
 ## Execute Terraform script in sequence
 1. terraform init
