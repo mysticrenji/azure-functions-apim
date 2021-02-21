@@ -8,7 +8,15 @@ export AZURE_CLIENT_ID=''</br>
 export AZURE_CLIENT_SECRET=''</br>
 
 ## Create Azure Blob Storage to act as Terraform Remote Backend
-Edit the blobstoragecreation.sh and update values, then execute </br>
+Edit the blobstoragecreation.sh and update values, then execute. Save the results</br>
+
+## Create Key Vault to store Azure storage key for the blob account
+az keyvault create --name "terraformblobkey" --resource-group "rg-experiments-apim" --location "EastUS" </br>
+az keyvault secret set --vault-name "terraformblobkey" --name "blobkey" --value "#Accountkey#" </br>
+
+The value from the key vault can be retrieved using AzCLI command and it gets exported to ARM_ACCESS_KEY environment variables, that will be utilized in Azure Remote Backend intialization </br>
+
+export ARM_ACCESS_KEY=$(az keyvault secret show --name blobkey --vault-name terraformblobkey --query value -o tsv) </br>
 
 ## Execute Terraform script in sequence
 1. terraform init
