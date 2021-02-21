@@ -20,24 +20,24 @@ terraform {
 }
 
 resource "azurerm_resource_group" "resourcegroup" {
-  name     = "${var.resource_group_name}"
-  location = "${var.location}"
+  name     = var.resource_group_name
+  location = var.location
 }
 
 resource "azurerm_api_management" "apim-resource" {
-  name                = "${var.apim_name}"
+  name                = var.apim_name
   location            = azurerm_resource_group.resourcegroup.location
   resource_group_name = azurerm_resource_group.resourcegroup.name
-  publisher_name      = "${var.company}"
-  publisher_email     = "${var.email}"
+  publisher_name      = var.company
+  publisher_email     = var.email
 
   sku_name = "Developer_1"
 }
 
 resource "azurerm_api_management_api" "apim-management" {
-  name                = "example-api"
+  name                = "terraform-api"
   resource_group_name = azurerm_resource_group.resourcegroup.name
-  api_management_name = azurerm_api_management.resource.name
+  api_management_name = azurerm_api_management.apim-resource.name
   revision            = "1"
   display_name        = "API 1"
   path                = "example"
