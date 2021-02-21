@@ -15,4 +15,6 @@ Edit the bash blobstoragecreation.sh and update values , then execute </br>
 2. terraform plan
 3. terraform apply -var="key=value"
 
+## TF State file on Blob Storage
+![Alt text](./BlobStorage.PNG?raw=true "Blob Storage")
 
