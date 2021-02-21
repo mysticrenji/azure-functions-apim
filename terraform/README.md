@@ -15,6 +15,10 @@ Edit the bash blobstoragecreation.sh and update values , then execute </br>
 2. terraform plan
 3. terraform apply -var="key=value"
 
+You may have to import the resource state if you are reusing the same resource group as that of azure storage account for apim. </br>
+In that case, execute the below command </br>
+terraform import azurerm_resource_group.resourcegroup /subscriptions/subscriptionid/resourceGroups/rg-experiments-apim</br>
+
 ## TF State file on Blob Storage
 ![Alt text](./BlobStorage.PNG?raw=true "Blob Storage")
 
