@@ -1,6 +1,6 @@
 #!/bin/bash
 
-RESOURCE_GROUP_NAME=rg-experiments-apim
+RESOURCE_GROUP_NAME=rg-experiments-sea
 STORAGE_ACCOUNT_NAME=terraformblobstoragedev
 CONTAINER_NAME=tstate
 LOCATION=eastus
